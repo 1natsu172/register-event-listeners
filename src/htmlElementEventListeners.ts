@@ -7,15 +7,19 @@ import {
 
 import { HTMLElementEventHandlers } from './types/HTMLElementEventHandler'
 
+const isHTMLElementEventHandlers = <K extends keyof HTMLElementEventMap>(
+  x: unknown
+): x is HTMLElementEventHandlers<K> => Array.isArray(x)
+
 export const htmlElementEventListeners = <K extends keyof HTMLElementEventMap>(
   element: HTMLElement,
   eventHandlers: HTMLElementEventHandlers<K>
 ) => {
-  // if (!Array.isArray(eventHandlers)) {
-  //   throw new Error(
-  //     'eventHandlers is not an array type. eventHandlers must be an array type.'
-  //   )
-  // }
+  if (!isHTMLElementEventHandlers(eventHandlers)) {
+    throw new Error(
+      'eventHandlers is not an array type. eventHandlers must be an array type.'
+    )
+  }
 
   const register = () =>
     (Object.keys(eventHandlers) as (keyof typeof eventHandlers)[]).forEach(
