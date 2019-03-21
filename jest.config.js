@@ -4,7 +4,10 @@ module.exports = {
   globals: {
     'ts-jest': {
       // diagnostics: true
-      diagnostics: false
+      // diagnostics: false
+      diagnostics: {
+        warnOnly: true
+      }
     }
   }
 }
