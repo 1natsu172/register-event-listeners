@@ -5,8 +5,9 @@ import { ListenerOptions } from './ListenerOptions'
  * @type Single handler method type of event.
  */
 export type HTMLElementEventHandler<K extends keyof HTMLElementEventMap> = (
-  event: HTMLElementEventMap[K]
-) => any
+  this: HTMLElement,
+  ev: HTMLElementEventMap[K]
+) => any | EventListenerOrEventListenerObject
 
 /**
  * @type Object type for 2nd argment, key is event name: value is handler and optional options.
