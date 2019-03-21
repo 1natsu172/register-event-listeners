@@ -2,24 +2,17 @@ import {
   pickHandler,
   pickListenerOption,
   detectListenerOption,
-  captureOption
+  captureOption,
+  checkEventHandlersArg
 } from './libs'
 
 import { HTMLElementEventHandlers } from './types/HTMLElementEventHandler'
-
-const isHTMLElementEventHandlers = <K extends keyof HTMLElementEventMap>(
-  x: unknown
-): x is HTMLElementEventHandlers<K> => Array.isArray(x)
 
 export const htmlElementEventListeners = <K extends keyof HTMLElementEventMap>(
   element: HTMLElement,
   eventHandlers: HTMLElementEventHandlers<K>
 ) => {
-  if (!isHTMLElementEventHandlers(eventHandlers)) {
-    throw new Error(
-      'eventHandlers is not an array type. eventHandlers must be an array type.'
-    )
-  }
+  checkEventHandlersArg(eventHandlers)
 
   const register = () =>
     (Object.keys(eventHandlers) as (keyof typeof eventHandlers)[]).forEach(
