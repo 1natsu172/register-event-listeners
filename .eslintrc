@@ -8,11 +8,12 @@
     "project": "./tsconfig.json",
     "tsconfigRootDir": "."
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "jest", "prettier"],
   "extends": [
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
