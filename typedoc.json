@@ -1,0 +1,7 @@
+{
+  "mode": "file",
+  "out": "docs",
+  "readme": "./README.md",
+  "exclude": "**/*+(.spec|.e2e).ts",
+  "theme": "minimal"
+}
