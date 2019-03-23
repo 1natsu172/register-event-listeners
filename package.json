@@ -1,6 +1,6 @@
 {
   "name": "html-element-event-listeners",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Utility function to register multiple events",
   "publishConfig": {
     "access": "public"
