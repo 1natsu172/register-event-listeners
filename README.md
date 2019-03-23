@@ -1,4 +1,4 @@
-# html-element-event-listeners
+# register-event-listeners
 
 **Utility function to register multiple events**
 
@@ -9,7 +9,7 @@ _**In other words, util function that multiple execute addEventListener/removeEv
 with **yarn**
 
 ```bash
-yarn add html-element-event-listeners
+yarn add register-event-listeners
 ```
 
 or
@@ -17,13 +17,13 @@ or
 with **npm**
 
 ```bash
-npm install html-element-event-listeners
+npm install register-event-listeners
 ```
 
 ## 💁 Usage
 
 ```javascript
-import { htmlElementEventListeners } from 'html-element-event-listeners'
+import { registerEventListeners } from 'register-event-listeners'
 
 const eventTarget = document.body
 
@@ -32,7 +32,7 @@ const onTouchMove = (event) => console.log(`${event.type} event dispatched.`)
 const onEnd = (event) => console.log(`${event.type} event dispatched.`)
 const onEnd = (event) => console.log(`${event.type} event dispatched.`)
 
-const { register, unRegister } = htmlElementEventListeners(eventTarget, {
+const { register, unRegister } = registerEventListeners(eventTarget, {
   touchstart: [onTouchStart],
   touchmove: [onTouchMove, { passive: false }],
   touchend: [onEnd],
@@ -52,14 +52,14 @@ unRegister()
 
 ## 🔥 APIs
 
-### `htmlElementEventListeners(element, eventHandlers)`
+### `registerEventListeners(element, listeners)`
 
-| name          | require |                                                                   type                                                                   | default | decstiption                                                                                             |
-| ------------- | :-----: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
-| element       |    ✓    |                                                               HTMLElement                                                                |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
-| eventHandlers |    ✓    | object([HTMLElementEventHandlerType](https://1natsu172.github.io/html-element-event-listeners/globals.html#htmlelementeventhandlertype)) |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
+| name          | require |                                                                 type                                                                 | default | decstiption                                                                                             |
+| ------------- | :-----: | :----------------------------------------------------------------------------------------------------------------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
+| element       |    ✓    |                                                             HTMLElement                                                              |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
+| listeners |    ✓    | object([HTMLElementEventHandlerType](https://1natsu172.github.io/register-event-listeners/globals.html#htmlelementeventhandlertype)) |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
 
-#### About 2nd argument(eventHandlers)
+#### About 2nd argument(listeners)
 
 ##### object - Key
 

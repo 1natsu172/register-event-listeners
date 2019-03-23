@@ -1,1 +1,1 @@
-export { htmlElementEventListeners } from './htmlElementEventListeners'
+export { registerEventListeners } from './registerEventListeners'

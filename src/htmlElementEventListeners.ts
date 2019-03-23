@@ -8,17 +8,17 @@ import {
 
 import { HTMLElementEventHandlers } from './types/HTMLElementEventHandler'
 
-export const htmlElementEventListeners = <K extends keyof HTMLElementEventMap>(
+export const registerEventListeners = <K extends keyof HTMLElementEventMap>(
   element: HTMLElement,
-  eventHandlers: HTMLElementEventHandlers<K>
+  listeners: HTMLElementEventHandlers<K>
 ) => {
-  checkEventHandlersArg(eventHandlers)
+  checkEventHandlersArg(listeners)
 
   const register = () =>
-    (Object.keys(eventHandlers) as (keyof typeof eventHandlers)[]).forEach(
+    (Object.keys(listeners) as (keyof typeof listeners)[]).forEach(
       event => {
-        const handler = pickHandler(event, eventHandlers)
-        const pickedOption = pickListenerOption(event, eventHandlers)
+        const handler = pickHandler(event, listeners)
+        const pickedOption = pickListenerOption(event, listeners)
         const listenerOption = detectListenerOption(pickedOption)
 
         element.addEventListener(event, handler, listenerOption)
@@ -26,10 +26,10 @@ export const htmlElementEventListeners = <K extends keyof HTMLElementEventMap>(
     )
 
   const unRegister = () =>
-    (Object.keys(eventHandlers) as (keyof typeof eventHandlers)[]).forEach(
+    (Object.keys(listeners) as (keyof typeof listeners)[]).forEach(
       event => {
-        const handler = pickHandler(event, eventHandlers)
-        const pickedOption = pickListenerOption(event, eventHandlers)
+        const handler = pickHandler(event, listeners)
+        const pickedOption = pickListenerOption(event, listeners)
         const listenerOption = captureOption(pickedOption)
 
         element.removeEventListener(

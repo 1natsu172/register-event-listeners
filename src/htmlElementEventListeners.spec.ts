@@ -1,4 +1,4 @@
-import { htmlElementEventListeners } from './htmlElementEventListeners'
+import { registerEventListeners } from './registerEventListeners'
 
 const handlerMock1 = jest.fn()
 const handlerMock2 = jest.fn()
@@ -20,8 +20,8 @@ const handlers2 = {
 }
 
 let element: HTMLElement
-let htmlElementEventListeners1: ReturnType<typeof htmlElementEventListeners>
-let htmlElementEventListeners2: ReturnType<typeof htmlElementEventListeners>
+let registerEventListeners1: ReturnType<typeof registerEventListeners>
+let registerEventListeners2: ReturnType<typeof registerEventListeners>
 
 beforeAll(() => {
   /**
@@ -30,7 +30,7 @@ beforeAll(() => {
   element = document.createElement('div')
   document.body.appendChild(element)
 
-  htmlElementEventListeners1 = htmlElementEventListeners(element, {
+  registerEventListeners1 = registerEventListeners(element, {
     scroll: [handlers1.scroll],
     touchstart: [handlers1.touchstart],
     touchmove: [handlers1.touchmove],
@@ -38,7 +38,7 @@ beforeAll(() => {
     click: [handlers1.click]
   })
 
-  htmlElementEventListeners2 = htmlElementEventListeners(element, {
+  registerEventListeners2 = registerEventListeners(element, {
     focus: [handlers2.focus],
     blur: [handlers2.blur],
     keydown: [handlers2.keydown],
@@ -51,18 +51,18 @@ afterAll(() => {
   /**
    * @description unRegister reliably
    */
-  htmlElementEventListeners1.unRegister()
-  htmlElementEventListeners2.unRegister()
+  registerEventListeners1.unRegister()
+  registerEventListeners2.unRegister()
 })
 
 describe('When an event occurs after register', () => {
   beforeEach(() => {
-    const { register } = htmlElementEventListeners1
+    const { register } = registerEventListeners1
     register()
   })
 
   afterEach(() => {
-    const { unRegister } = htmlElementEventListeners1
+    const { unRegister } = registerEventListeners1
     unRegister()
     handlerMock1.mockClear() // Clear called record
   })
@@ -81,7 +81,7 @@ describe('When an event occurs after register', () => {
 
 describe('When an event occurs after unRegister', () => {
   beforeAll(() => {
-    const { register, unRegister } = htmlElementEventListeners1
+    const { register, unRegister } = registerEventListeners1
     register()
     unRegister()
   })
@@ -95,12 +95,12 @@ describe('When an event occurs after unRegister', () => {
 })
 
 describe('Remove listeners(unRegister) tests of multiple instances', () => {
-  let instance1: typeof htmlElementEventListeners1
-  let instance2: typeof htmlElementEventListeners2
+  let instance1: typeof registerEventListeners1
+  let instance2: typeof registerEventListeners2
 
   beforeAll(() => {
-    instance1 = htmlElementEventListeners1
-    instance2 = htmlElementEventListeners2
+    instance1 = registerEventListeners1
+    instance2 = registerEventListeners2
   })
   beforeEach(() => {
     instance1.register()
@@ -137,10 +137,10 @@ describe('Remove listeners(unRegister) tests of multiple instances', () => {
 })
 
 describe('register then unRegister then re-register', () => {
-  let instance1: typeof htmlElementEventListeners1
+  let instance1: typeof registerEventListeners1
 
   beforeAll(() => {
-    instance1 = htmlElementEventListeners1
+    instance1 = registerEventListeners1
   })
 
   beforeEach(() => {
@@ -180,7 +180,7 @@ describe('register then unRegister then re-register', () => {
 describe('Errors by argument inputs', () => {
   test('2nd arg is not Array type.', () => {
     expect(() =>
-      htmlElementEventListeners(element, {
+      registerEventListeners(element, {
         mousedown: handlerMock1
       })
     ).toThrow()

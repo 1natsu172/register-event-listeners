@@ -6,16 +6,16 @@ import {
 
 export const pickHandler = <K extends keyof HTMLElementEventMap>(
   event: K,
-  eventHandlers: HTMLElementEventHandlers<K>
+  listeners: HTMLElementEventHandlers<K>
 ): HTMLElementEventHandler<K> => {
-  const [handler] = eventHandlers[event]
+  const [handler] = listeners[event]
   return handler
 }
 
 export const pickListenerOption = <K extends keyof HTMLElementEventMap>(
   event: K,
-  eventHandlers: HTMLElementEventHandlers<K>
+  listeners: HTMLElementEventHandlers<K>
 ): ListenerOptions | undefined => {
-  const [, listenerOption] = eventHandlers[event]
+  const [, listenerOption] = listeners[event]
   return listenerOption
 }
