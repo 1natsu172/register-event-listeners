@@ -948,7 +948,80 @@ img { max-width: 100%; }
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
 			<h1 id="html-element-event-listeners">html-element-event-listeners</h1>
-			<p>Utility function to register multiple events</p>
+			<p><strong>Utility function to register multiple events</strong></p>
+			<p><em><strong>In other words, util function that multiple execute addEventListener/removeEventListener</strong></em></p>
+			<h2 id="-getting-started">✨ Getting Started</h2>
+			<p>with <strong>yarn</strong></p>
+			<pre><code class="language-bash">yarn add html-element-event-listeners</code></pre>
+			<p>or</p>
+			<p>with <strong>npm</strong></p>
+			<pre><code class="language-bash">npm install html-element-event-listeners</code></pre>
+			<h2 id="-usage">💁 Usage</h2>
+			<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { htmlElementEventListeners } <span class="hljs-keyword">from</span> <span class="hljs-string">'html-element-event-listeners'</span>
+
+<span class="hljs-keyword">const</span> eventTarget = <span class="hljs-built_in">document</span>.body
+
+<span class="hljs-keyword">const</span> onTouchStart = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
+<span class="hljs-keyword">const</span> onTouchMove = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
+<span class="hljs-keyword">const</span> onEnd = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
+<span class="hljs-keyword">const</span> onEnd = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
+
+<span class="hljs-keyword">const</span> { register, unRegister } = htmlElementEventListeners(eventTarget, {
+  <span class="hljs-attr">touchstart</span>: [onTouchStart],
+  <span class="hljs-attr">touchmove</span>: [onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
+  <span class="hljs-attr">touchend</span>: [onEnd],
+  <span class="hljs-attr">touchcancel</span>: [onEnd]
+})
+
+<span class="hljs-comment">// Execute element.addEventListener(s) passed to the argument.</span>
+register()
+
+<span class="hljs-comment">// Now added event listeners. 🔈</span>
+
+<span class="hljs-comment">// Execute element.removeEventListener(s) passed to the argument.</span>
+unRegister()
+
+<span class="hljs-comment">// Now removed event listeners. 🔇</span></code></pre>
+			<h2 id="-apis">🔥 APIs</h2>
+			<h3 id="-htmlelementeventlisteners-element-eventhandlers-"><code>#htmlElementEventListeners(element, eventHandlers)</code></h3>
+			<table>
+				<thead>
+					<tr>
+						<th>name</th>
+						<th align="center">require</th>
+						<th align="center">type</th>
+						<th align="center">default</th>
+						<th>decstiption</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+						<td>element</td>
+						<td align="center">✓</td>
+						<td align="center">HTMLElement</td>
+						<td align="center">-</td>
+						<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">MDN - EventTarget</a></td>
+					</tr>
+					<tr>
+						<td>eventHandlers</td>
+						<td align="center">✓</td>
+						<td align="center">HTMLElementEventHandlerType</td>
+						<td align="center">-</td>
+						<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">MDN - addEventListener</a></td>
+					</tr>
+			</tbody></table>
+			<h2 id="-running-the-tests">💚 Running the tests</h2>
+			<p>with <a href="https://jestjs.io/">Jest</a>.</p>
+			<pre><code class="language-bash">yarn <span class="hljs-built_in">test</span></code></pre>
+			<p>or</p>
+			<pre><code class="language-bash">npm run <span class="hljs-built_in">test</span></code></pre>
+			<!--
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
+			<h2 id="-versioning">🏷 Versioning</h2>
+			<p>Use <a href="http://semver.org/">SemVer</a> for versioning. For the versions available, see the <a href="https://github.com/1natsu172/handy-media-query/tags">tags on this repository</a>. </p>
+			<h2 id="-license">©️ License</h2>
+			<p>MIT © <a href="https://github.com/1natsu172">1natsu172</a></p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -992,7 +1065,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/types/HTMLElementEventHandler.ts#L7">types/HTMLElementEventHandler.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L7">types/HTMLElementEventHandler.ts:7</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1036,7 +1109,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="globals.html#htmlelementeventhandler" class="tsd-signature-type">HTMLElementEventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/types/HTMLElementEventHandler.ts#L12">types/HTMLElementEventHandler.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L12">types/HTMLElementEventHandler.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1046,7 +1119,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/types/HTMLElementEventHandler.ts#L20">types/HTMLElementEventHandler.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L20">types/HTMLElementEventHandler.ts:20</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1068,7 +1141,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Listener<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1081,7 +1154,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">supports<wbr>Passive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;detectPassiveEvents.hasSupport</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1098,7 +1171,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1121,7 +1194,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1150,7 +1223,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1176,7 +1249,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/htmlElementEventListeners.ts#L11">htmlElementEventListeners.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/htmlElementEventListeners.ts#L11">htmlElementEventListeners.ts:11</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1216,7 +1289,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/pickFromHandlers.ts#L7">libs/pickFromHandlers.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/pickFromHandlers.ts#L7">libs/pickFromHandlers.ts:7</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1248,7 +1321,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/0376634/src/libs/pickFromHandlers.ts#L15">libs/pickFromHandlers.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/pickFromHandlers.ts#L15">libs/pickFromHandlers.ts:15</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
