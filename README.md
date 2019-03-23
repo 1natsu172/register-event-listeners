@@ -52,12 +52,50 @@ unRegister()
 
 ## 🔥 APIs
 
-### `#htmlElementEventListeners(element, eventHandlers)`
+### `htmlElementEventListeners(element, eventHandlers)`
 
-| name          | require |            type             | default | decstiption                                                                                             |
-| ------------- | :-----: | :-------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
-| element       |    ✓    |         HTMLElement         |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
-| eventHandlers |    ✓    | HTMLElementEventHandlerType |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
+| name          | require |                                                                   type                                                                   | default | decstiption                                                                                             |
+| ------------- | :-----: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
+| element       |    ✓    |                                                               HTMLElement                                                                |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
+| eventHandlers |    ✓    | object([HTMLElementEventHandlerType](https://1natsu172.github.io/html-element-event-listeners/globals.html#htmlelementeventhandlertype)) |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
+
+#### About 2nd argument(eventHandlers)
+
+##### object - Key
+
+Key is an event name. **This must be strictly an [event.type](https://developer.mozilla.org/ja/docs/Web/API/Event/type).**
+
+##### object - Value
+
+**Value must be array type.**
+
+`[handler, listenerOptions]` 
+
+Please follow this format. `handler` is required, `listenerOptions` is optional.
+
+This is exactly the same as the format of the second and third arguments of [`addEventListener`](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener).
+
+##### The second argument object should be like this.
+
+```javascript
+{
+  touchstart: [onTouchStart, {capture: true, once: true}],
+  touchmove: [onTouchMove, { passive: false }],
+  touchend: [onEnd],
+  touchcancel: [onEnd]
+}
+```
+
+#### Returns
+
+##### register
+
+register event listeners. In other words _addEventListener**s**_.
+
+##### unRegister
+
+unRegister event listeners. In other words _removeEventListener**s**_.
+
 
 ## 💚 Running the tests
 

@@ -983,7 +983,7 @@ unRegister()
 
 <span class="hljs-comment">// Now removed event listeners. 🔇</span></code></pre>
 			<h2 id="-apis">🔥 APIs</h2>
-			<h3 id="-htmlelementeventlisteners-element-eventhandlers-"><code>#htmlElementEventListeners(element, eventHandlers)</code></h3>
+			<h3 id="htmlelementeventlisteners-element-eventhandlers-"><code>htmlElementEventListeners(element, eventHandlers)</code></h3>
 			<table>
 				<thead>
 					<tr>
@@ -1004,11 +1004,31 @@ unRegister()
 					<tr>
 						<td>eventHandlers</td>
 						<td align="center">✓</td>
-						<td align="center">HTMLElementEventHandlerType</td>
+						<td align="center">object(<a href="https://1natsu172.github.io/html-element-event-listeners/globals.html#htmlelementeventhandlertype">HTMLElementEventHandlerType</a>)</td>
 						<td align="center">-</td>
 						<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">MDN - addEventListener</a></td>
 					</tr>
 			</tbody></table>
+			<h4 id="about-2nd-argument-eventhandlers-">About 2nd argument(eventHandlers)</h4>
+			<h5 id="object-key">object - Key</h5>
+			<p>Key is an event name. <strong>This must be strictly an <a href="https://developer.mozilla.org/ja/docs/Web/API/Event/type">event.type</a>.</strong></p>
+			<h5 id="object-value">object - Value</h5>
+			<p><strong>Value must be array type.</strong></p>
+			<p><code>[handler, listenerOptions]</code> </p>
+			<p>Please follow this format. <code>handler</code> is required, <code>listenerOptions</code> is optional.</p>
+			<p>This is exactly the same as the format of the second and third arguments of <a href="https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener"><code>addEventListener</code></a>.</p>
+			<h5 id="the-second-argument-object-should-be-like-this-">The second argument object should be like this.</h5>
+			<pre><code class="language-javascript">{
+  <span class="hljs-attr">touchstart</span>: [onTouchStart, {<span class="hljs-attr">capture</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>}],
+  <span class="hljs-attr">touchmove</span>: [onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
+  <span class="hljs-attr">touchend</span>: [onEnd],
+  <span class="hljs-attr">touchcancel</span>: [onEnd]
+}</code></pre>
+			<h4 id="returns">Returns</h4>
+			<h5 id="register">register</h5>
+			<p>register event listeners. In other words <em>addEventListener<strong>s</strong></em>.</p>
+			<h5 id="unregister">unRegister</h5>
+			<p>unRegister event listeners. In other words <em>removeEventListener<strong>s</strong></em>.</p>
 			<h2 id="-running-the-tests">💚 Running the tests</h2>
 			<p>with <a href="https://jestjs.io/">Jest</a>.</p>
 			<pre><code class="language-bash">yarn <span class="hljs-built_in">test</span></code></pre>
@@ -1064,7 +1084,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L7">types/HTMLElementEventHandler.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/types/HTMLElementEventHandler.ts#L7">types/HTMLElementEventHandler.ts:7</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1108,7 +1128,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="globals.html#htmlelementeventhandler" class="tsd-signature-type">HTMLElementEventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L12">types/HTMLElementEventHandler.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/types/HTMLElementEventHandler.ts#L12">types/HTMLElementEventHandler.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1118,7 +1138,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/HTMLElementEventHandler.ts#L20">types/HTMLElementEventHandler.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/types/HTMLElementEventHandler.ts#L20">types/HTMLElementEventHandler.ts:20</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1140,7 +1160,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">Listener<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1153,7 +1173,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">supports<wbr>Passive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;detectPassiveEvents.hasSupport</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1170,7 +1190,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1193,7 +1213,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1222,7 +1242,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1248,7 +1268,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/htmlElementEventListeners.ts#L11">htmlElementEventListeners.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/htmlElementEventListeners.ts#L11">htmlElementEventListeners.ts:11</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1288,7 +1308,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/pickFromHandlers.ts#L7">libs/pickFromHandlers.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/pickFromHandlers.ts#L7">libs/pickFromHandlers.ts:7</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1320,7 +1340,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/88eeb66/src/libs/pickFromHandlers.ts#L15">libs/pickFromHandlers.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/html-element-event-listeners/blob/1619c95/src/libs/pickFromHandlers.ts#L15">libs/pickFromHandlers.ts:15</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
