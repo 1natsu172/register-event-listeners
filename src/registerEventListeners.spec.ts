@@ -30,21 +30,21 @@ beforeAll(() => {
   element = document.createElement('div')
   document.body.appendChild(element)
 
-  registerEventListeners1 = registerEventListeners(element, {
-    scroll: [handlers1.scroll],
-    touchstart: [handlers1.touchstart],
-    touchmove: [handlers1.touchmove],
-    touchend: [handlers1.touchend],
-    click: [handlers1.click]
-  })
+  registerEventListeners1 = registerEventListeners(element, [
+    ['scroll', handlers1.scroll],
+    ['touchstart', handlers1.touchstart],
+    ['touchmove', handlers1.touchmove],
+    ['touchend', handlers1.touchend],
+    ['click', handlers1.click]
+  ])
 
-  registerEventListeners2 = registerEventListeners(element, {
-    focus: [handlers2.focus],
-    blur: [handlers2.blur],
-    keydown: [handlers2.keydown],
-    keypress: [handlers2.keypress],
-    keyup: [handlers2.keyup]
-  })
+  registerEventListeners2 = registerEventListeners(element, [
+    ['focus', handlers2.focus],
+    ['blur', handlers2.blur],
+    ['keydown', handlers2.keydown],
+    ['keypress', handlers2.keypress],
+    ['keyup', handlers2.keyup]
+  ])
 })
 
 afterAll(() => {
@@ -178,11 +178,49 @@ describe('register then unRegister then re-register', () => {
 })
 
 describe('Errors by argument inputs', () => {
-  test('2nd arg is not Array type.', () => {
+  test('2nd arg nesting values is not Array type.', () => {
     expect(() =>
-      registerEventListeners(element, {
-        mousedown: handlerMock1
-      })
+      registerEventListeners(element, ['mousedown', handlerMock1])
     ).toThrow()
+  })
+})
+
+describe('Validity check of EventTarget', () => {
+  const eventTargets = [
+    window,
+    document,
+    document.body,
+    document.createElement('div')
+  ]
+  const event = 'scroll'
+
+  const registedListeners: ReturnType<typeof registerEventListeners>[] = []
+
+  beforeAll(() => {
+    eventTargets.forEach(eventTarget => {
+      const registedListener = registerEventListeners(eventTarget, [
+        [event, handlers1.scroll]
+      ])
+      registedListener.register()
+      registedListeners.push(registedListener)
+    })
+  })
+
+  afterAll(() => {
+    registedListeners.forEach(registedListener => {
+      const { unRegister } = registedListener
+      unRegister()
+    })
+  })
+
+  afterEach(() => {
+    handlerMock1.mockClear() // Clear called record
+  })
+
+  eventTargets.forEach(eventTarget => {
+    test('Check if listener is passing for eventTargets', () => {
+      eventTarget.dispatchEvent(new Event(event))
+      expect(handlerMock1).toHaveBeenCalled()
+    })
   })
 })
