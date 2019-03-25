@@ -4,7 +4,7 @@ import {
   pickListenerOption,
   detectListenerOption,
   captureOption,
-  checkEventHandlersArg
+  checkArgs
 } from './libs'
 
 import { EventType, EventListeners } from './types/EventListeners'
@@ -13,7 +13,7 @@ export const registerEventListeners = <K extends EventType>(
   eventTarget: EventTarget,
   eventListeners: EventListeners<K>
 ) => {
-  checkEventHandlersArg(eventListeners)
+  checkArgs(eventListeners)
 
   const register = () =>
     eventListeners.forEach(eventListener => {

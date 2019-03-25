@@ -1,6 +1,6 @@
 import { EventListeners } from '../types/EventListeners'
 
-export const checkEventHandlersArg = <E extends string>(
+export const checkArgs = <E extends string>(
   eventListeners: EventListeners<E>
 ) => {
   if (!Array.isArray(eventListeners)) {
