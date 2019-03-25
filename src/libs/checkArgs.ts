@@ -1,14 +1,15 @@
-import { HTMLElementEventHandlers } from '../types/HTMLElementEventHandler'
+import { EventListeners } from '../types/EventListeners'
 
-export const checkEventHandlersArg = <K extends keyof HTMLElementEventMap>(
-  listeners: HTMLElementEventHandlers<K>
+export const checkEventHandlersArg = <E extends string>(
+  eventListeners: EventListeners<E>
 ) => {
-  ;(Object.keys(listeners) as (keyof typeof listeners)[]).forEach(
-    event => {
-      const handler = listeners[event]
-      if (!Array.isArray(handler)) {
-        throw new Error('The handler for each event is an array type.')
-      }
+  if (!Array.isArray(eventListeners)) {
+    throw new Error('2nd argment must be array type.')
+  }
+
+  eventListeners.forEach(eventListener => {
+    if (!Array.isArray(eventListener)) {
+      throw new Error('event listener is must be array type.')
     }
-  )
+  })
 }
