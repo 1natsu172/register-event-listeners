@@ -909,17 +909,32 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#htmlelementeventhandler" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler</a>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/eventmap.html" class="tsd-kind-icon">Event<wbr>Map</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#htmlelementeventhandlertype" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<wbr>Type</a>
+			<a href="globals.html#eventhandler" class="tsd-kind-icon">Event<wbr>Handler</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
+			<a href="globals.html#eventhandlersignature" class="tsd-kind-icon">Event<wbr>Handler<wbr>Signature</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#htmlelementeventhandlers" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handlers</a>
+			<a href="globals.html#eventlistener" class="tsd-kind-icon">Event<wbr>Listener</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#eventlisteners" class="tsd-kind-icon">Event<wbr>Listeners</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#listeneroptions" class="tsd-kind-icon">Listener<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#literalunion" class="tsd-kind-icon">Literal<wbr>Union</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="globals.html#primitive" class="tsd-kind-icon">Primitive</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-is-not-exported">
 			<a href="globals.html#supportspassive" class="tsd-kind-icon">supports<wbr>Passive</a>
@@ -928,13 +943,13 @@ img { max-width: 100%; }
 			<a href="globals.html#captureoption" class="tsd-kind-icon">capture<wbr>Option</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#checkeventhandlersarg" class="tsd-kind-icon">check<wbr>Event<wbr>Handlers<wbr>Arg</a>
+			<a href="globals.html#checkargs" class="tsd-kind-icon">check<wbr>Args</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#detectlisteneroption" class="tsd-kind-icon">detect<wbr>Listener<wbr>Option</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#htmlelementeventlisteners" class="tsd-kind-icon">html<wbr>Element<wbr>Event<wbr>Listeners</a>
+			<a href="globals.html#pickeventtype" class="tsd-kind-icon">pick<wbr>Event<wbr>Type</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#pickhandler" class="tsd-kind-icon">pick<wbr>Handler</a>
@@ -942,14 +957,23 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#picklisteneroption" class="tsd-kind-icon">pick<wbr>Listener<wbr>Option</a>
 		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#registereventlisteners" class="tsd-kind-icon">register<wbr>Event<wbr>Listeners</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
 			<h1 id="register-event-listeners">register-event-listeners</h1>
-			<p><strong>Utility function to register multiple events</strong></p>
-			<p><em><strong>In other words, util function that multiple execute addEventListener/removeEventListener</strong></em></p>
+			<p><strong>Utility function to register multiple event listeners</strong></p>
+			<p><em><strong>In other words, utility function that multiple execute addEventListener/removeEventListener</strong></em></p>
+			<hr>
+			<h2 id="caveat"><em>CAVEAT</em></h2>
+			<p><strong>Currently, the type definition of the second argument is broken.</strong></p>
+			<p>Investigating a solution, but it is difficult……</p>
+			<p>Help wanted!(<a href="https://github.com/1natsu172/register-event-listeners/issues/1">#1</a>)</p>
+			<hr>
 			<h2 id="-getting-started">✨ Getting Started</h2>
 			<p>with <strong>yarn</strong></p>
 			<pre><code class="language-bash">yarn add register-event-listeners</code></pre>
@@ -964,14 +988,13 @@ img { max-width: 100%; }
 <span class="hljs-keyword">const</span> onTouchStart = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
 <span class="hljs-keyword">const</span> onTouchMove = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
 <span class="hljs-keyword">const</span> onEnd = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
-<span class="hljs-keyword">const</span> onEnd = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${event.type}</span> event dispatched.`</span>)
 
-<span class="hljs-keyword">const</span> { register, unRegister } = registerEventListeners(eventTarget, {
-  <span class="hljs-attr">touchstart</span>: [onTouchStart],
-  <span class="hljs-attr">touchmove</span>: [onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
-  <span class="hljs-attr">touchend</span>: [onEnd],
-  <span class="hljs-attr">touchcancel</span>: [onEnd]
-})
+<span class="hljs-keyword">const</span> { register, unRegister } = registerEventListeners(eventTarget, [
+  [<span class="hljs-string">'touchstart'</span>, onTouchStart],
+  [<span class="hljs-string">'touchmove'</span>, onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
+  [<span class="hljs-string">'touchend'</span>, onEnd],
+  [<span class="hljs-string">'touchcancel'</span>, onEnd]
+])
 
 <span class="hljs-comment">// Execute element.addEventListener(s) passed to the argument.</span>
 register()
@@ -983,7 +1006,7 @@ unRegister()
 
 <span class="hljs-comment">// Now removed event listeners. 🔇</span></code></pre>
 			<h2 id="-apis">🔥 APIs</h2>
-			<h3 id="htmlelementeventlisteners-element-eventhandlers-"><code>registerEventListeners(element, listeners)</code></h3>
+			<h3 id="registereventlisteners-element-listeners-"><code>registerEventListeners(element, listeners)</code></h3>
 			<table>
 				<thead>
 					<tr>
@@ -995,35 +1018,36 @@ unRegister()
 					</tr>
 				</thead>
 				<tbody><tr>
-						<td>element</td>
+						<td>eventTarget</td>
 						<td align="center">✓</td>
-						<td align="center">HTMLElement</td>
+						<td align="center">EventTarget</td>
 						<td align="center">-</td>
 						<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">MDN - EventTarget</a></td>
 					</tr>
 					<tr>
 						<td>listeners</td>
 						<td align="center">✓</td>
-						<td align="center">object(<a href="https://1natsu172.github.io/register-event-listeners/globals.html#htmlelementeventhandlertype">HTMLElementEventHandlerType</a>)</td>
+						<td align="center">Array(<a href="https://1natsu172.github.io/register-event-listeners/globals.html#eventlisteners">EventListeners</a>)</td>
 						<td align="center">-</td>
 						<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">MDN - addEventListener</a></td>
 					</tr>
 			</tbody></table>
-			<h4 id="about-2nd-argument-eventhandlers-">About 2nd argument(listeners)</h4>
-			<h5 id="object-key">object - Key</h5>
-			<p>Key is an event name. <strong>This must be strictly an <a href="https://developer.mozilla.org/ja/docs/Web/API/Event/type">event.type</a>.</strong></p>
-			<h5 id="object-value">object - Value</h5>
-			<p><strong>Value must be array type.</strong></p>
-			<p><code>[handler, listenerOptions]</code> </p>
-			<p>Please follow this format. <code>handler</code> is required, <code>listenerOptions</code> is optional.</p>
-			<p>This is exactly the same as the format of the second and third arguments of <a href="https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener"><code>addEventListener</code></a>.</p>
-			<h5 id="the-second-argument-object-should-be-like-this-">The second argument object should be like this.</h5>
-			<pre><code class="language-javascript">{
-  <span class="hljs-attr">touchstart</span>: [onTouchStart, {<span class="hljs-attr">capture</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>}],
-  <span class="hljs-attr">touchmove</span>: [onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
-  <span class="hljs-attr">touchend</span>: [onEnd],
-  <span class="hljs-attr">touchcancel</span>: [onEnd]
-}</code></pre>
+			<h4 id="about-the-2nd-argument-listeners-">About the 2nd argument(listeners)</h4>
+			<h5 id="the-element-of-the-array">The element of the array</h5>
+			<p><strong>Element is same as the format of the argument of <a href="https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener"><code>addEventListener</code></a></strong></p>
+			<p>That is this 👉 <code>[type, listener[, options])]</code></p>
+			<ul>
+				<li><code>type</code> is <strong><a href="https://developer.mozilla.org/ja/docs/Web/API/Event/type">event.type</a>.</strong></li>
+				<li><code>listener</code> is commonly called a <strong>handler</strong></li>
+				<li><code>options</code> is listenerOptions</li>
+			</ul>
+			<h5 id="the-2nd-argument-should-be-like-this-">The 2nd argument should be like this.</h5>
+			<pre><code class="language-javascript">[
+  [<span class="hljs-string">'touchstart'</span>, onTouchStart, {<span class="hljs-attr">capture</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>}],
+  [<span class="hljs-string">'touchmove'</span>, onTouchMove, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">false</span> }],
+  [<span class="hljs-string">'touchend'</span>, onEnd],
+  [<span class="hljs-string">'touchcancel'</span>, onEnd]
+]</code></pre>
 			<h4 id="returns">Returns</h4>
 			<h5 id="register">register</h5>
 			<p>register event listeners. In other words <em>addEventListener<strong>s</strong></em>.</p>
@@ -1048,12 +1072,22 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
+						<h3>Interfaces</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-interface"><a href="interfaces/eventmap.html" class="tsd-kind-icon">Event<wbr>Map</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#htmlelementeventhandler" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#htmlelementeventhandlertype" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<wbr>Type</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#htmlelementeventhandlers" class="tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handlers</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#eventhandler" class="tsd-kind-icon">Event<wbr>Handler</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported"><a href="globals.html#eventhandlersignature" class="tsd-kind-icon">Event<wbr>Handler<wbr>Signature</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#eventlistener" class="tsd-kind-icon">Event<wbr>Listener</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#eventlisteners" class="tsd-kind-icon">Event<wbr>Listeners</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#listeneroptions" class="tsd-kind-icon">Listener<wbr>Options</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#literalunion" class="tsd-kind-icon">Literal<wbr>Union</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#primitive" class="tsd-kind-icon">Primitive</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-not-exported">
@@ -1066,11 +1100,12 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function"><a href="globals.html#captureoption" class="tsd-kind-icon">capture<wbr>Option</a></li>
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#checkeventhandlersarg" class="tsd-kind-icon">check<wbr>Event<wbr>Handlers<wbr>Arg</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#checkargs" class="tsd-kind-icon">check<wbr>Args</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#detectlisteneroption" class="tsd-kind-icon">detect<wbr>Listener<wbr>Option</a></li>
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#htmlelementeventlisteners" class="tsd-kind-icon">html<wbr>Element<wbr>Event<wbr>Listeners</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#pickeventtype" class="tsd-kind-icon">pick<wbr>Event<wbr>Type</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#pickhandler" class="tsd-kind-icon">pick<wbr>Handler</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#picklisteneroption" class="tsd-kind-icon">pick<wbr>Listener<wbr>Option</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#registereventlisteners" class="tsd-kind-icon">register<wbr>Event<wbr>Listeners</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1079,18 +1114,31 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="htmlelementeventhandler" class="tsd-anchor"></a>
-				<h3>HTMLElement<wbr>Event<wbr>Handler</h3>
-				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<a name="eventhandler" class="tsd-anchor"></a>
+				<h3>Event<wbr>Handler</h3>
+				<div class="tsd-signature tsd-kind-icon">Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventHandler&lt;EventName&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/types/HTMLElementEventHandler.ts#L7">types/HTMLElementEventHandler.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/EventListeners.ts#L29">types/EventListeners.ts:29</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
+				<a name="eventhandlersignature" class="tsd-anchor"></a>
+				<h3>Event<wbr>Handler<wbr>Signature</h3>
+				<div class="tsd-signature tsd-kind-icon">Event<wbr>Handler<wbr>Signature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/EventListeners.ts#L24">types/EventListeners.ts:24</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>From addEventListener definition(dom.d.ts)</p>
+					</div>
 					<dl class="tsd-comment-tags">
-						<dt>type</dt>
-						<dd><p>Single handler method type of event.</p>
+						<dt>todo</dt>
+						<dd><p>ev: argument can&#39;t infer Event, temporary any…….</p>
 						</dd>
 					</dl>
 				</div>
@@ -1099,23 +1147,20 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-siganture">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, ev<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElementEventMap[K]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EventListenerOrEventListenerObject</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventTarget</span>, ev<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventMap[EventName]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Event</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>this: <span class="tsd-signature-type">HTMLElement</span></h5>
+											<h5>this: <span class="tsd-signature-type">EventTarget</span></h5>
 										</li>
 										<li>
-											<h5>ev: <span class="tsd-signature-type">HTMLElementEventMap[K]</span></h5>
+											<h5>ev: <span class="tsd-signature-type">EventMap[EventName]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Event</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span>
-										<span class="tsd-signature-symbol"> | </span>
-										<span class="tsd-signature-type">EventListenerOrEventListenerObject</span>
-									</h4>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -1123,22 +1168,22 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="htmlelementeventhandlertype" class="tsd-anchor"></a>
-				<h3>HTMLElement<wbr>Event<wbr>Handler<wbr>Type</h3>
-				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handler<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="globals.html#htmlelementeventhandler" class="tsd-signature-type">HTMLElementEventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span><span class="tsd-signature-symbol">]</span></div>
+				<a name="eventlistener" class="tsd-anchor"></a>
+				<h3>Event<wbr>Listener</h3>
+				<div class="tsd-signature tsd-kind-icon">Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Extract</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#eventhandler" class="tsd-signature-type">EventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/types/HTMLElementEventHandler.ts#L12">types/HTMLElementEventHandler.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/EventListeners.ts#L35">types/EventListeners.ts:35</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="htmlelementeventhandlers" class="tsd-anchor"></a>
-				<h3>HTMLElement<wbr>Event<wbr>Handlers</h3>
-				<div class="tsd-signature tsd-kind-icon">HTMLElement<wbr>Event<wbr>Handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<a name="eventlisteners" class="tsd-anchor"></a>
+				<h3>Event<wbr>Listeners</h3>
+				<div class="tsd-signature tsd-kind-icon">Event<wbr>Listeners<span class="tsd-signature-symbol">:</span> <a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/types/HTMLElementEventHandler.ts#L20">types/HTMLElementEventHandler.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/EventListeners.ts#L44">types/EventListeners.ts:44</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1148,10 +1193,21 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 						</dd>
 					</dl>
 				</div>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<a name="eventtype" class="tsd-anchor"></a>
+				<h3>Event<wbr>Type</h3>
+				<div class="tsd-signature tsd-kind-icon">Event<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="globals.html#literalunion" class="tsd-signature-type">LiteralUnion</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">keyof EventMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/EventListeners.ts#L18">types/EventListeners.ts:18</a></li>
 					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>In other word, Event name.
+						e.g.&#39;scroll&#39;, &#39;touchmove&#39;…</p>
+					</div>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
@@ -1160,9 +1216,34 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">Listener<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AddEventListenerOptions</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/ListenerOptions.ts#L1">types/ListenerOptions.ts:1</a></li>
 					</ul>
 				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="literalunion" class="tsd-anchor"></a>
+				<h3>Literal<wbr>Union</h3>
+				<div class="tsd-signature tsd-kind-icon">Literal<wbr>Union<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">LiteralType</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">BaseType</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/utils/LiteralUnion.ts#L10">types/utils/LiteralUnion.ts:10</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<a name="primitive" class="tsd-anchor"></a>
+				<h3>Primitive</h3>
+				<div class="tsd-signature tsd-kind-icon">Primitive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/types/utils/LiteralUnion.ts#L8">types/utils/LiteralUnion.ts:8</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Matches any <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">primitive value</a>.</p>
+					</div>
+				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
@@ -1173,7 +1254,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				<div class="tsd-signature tsd-kind-icon">supports<wbr>Passive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;detectPassiveEvents.hasSupport</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/listenerOption.ts#L5">libs/listenerOption.ts:5</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1190,7 +1271,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/listenerOption.ts#L13">libs/listenerOption.ts:13</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1204,28 +1285,28 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="checkeventhandlersarg" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> check<wbr>Event<wbr>Handlers<wbr>Arg</h3>
+				<a name="checkargs" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> check<wbr>Args</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">check<wbr>Event<wbr>Handlers<wbr>Arg&lt;K&gt;<span class="tsd-signature-symbol">(</span>listeners<span class="tsd-signature-symbol">: </span><a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<li class="tsd-signature tsd-kind-icon">check<wbr>Args&lt;E&gt;<span class="tsd-signature-symbol">(</span>eventListeners<span class="tsd-signature-symbol">: </span><a href="globals.html#eventlisteners" class="tsd-signature-type">EventListeners</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/checkArgs.ts#L3">libs/checkArgs.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof HTMLElementEventMap</span></h4>
+								<h4>E<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>listeners: <a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>eventListeners: <a href="globals.html#eventlisteners" class="tsd-signature-type">EventListeners</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1242,7 +1323,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/listenerOption.ts#L25">libs/listenerOption.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1259,31 +1340,121 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="htmlelementeventlisteners" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> html<wbr>Element<wbr>Event<wbr>Listeners</h3>
+				<a name="pickeventtype" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> pick<wbr>Event<wbr>Type</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">html<wbr>Element<wbr>Event<wbr>Listeners&lt;K&gt;<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, listeners<span class="tsd-signature-symbol">: </span><a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					<li class="tsd-signature tsd-kind-icon">pick<wbr>Event<wbr>Type&lt;E&gt;<span class="tsd-signature-symbol">(</span>eventListener<span class="tsd-signature-symbol">: </span><a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/registerEventListeners.ts#L11">registerEventListeners.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/pickFromListeners.ts#L4">libs/pickFromListeners.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof HTMLElementEventMap</span></h4>
+								<h4>E<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+								<h5>eventListener: <a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="pickhandler" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> pick<wbr>Handler</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">pick<wbr>Handler&lt;E&gt;<span class="tsd-signature-symbol">(</span>eventListener<span class="tsd-signature-symbol">: </span><a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#eventhandler" class="tsd-signature-type">EventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/pickFromListeners.ts#L11">libs/pickFromListeners.ts:11</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>E<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>eventListener: <a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="globals.html#eventhandler" class="tsd-signature-type">EventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="picklisteneroption" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> pick<wbr>Listener<wbr>Option</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">pick<wbr>Listener<wbr>Option&lt;E&gt;<span class="tsd-signature-symbol">(</span>eventListener<span class="tsd-signature-symbol">: </span><a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#listeneroptions" class="tsd-signature-type">ListenerOptions</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/libs/pickFromListeners.ts#L18">libs/pickFromListeners.ts:18</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>E<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>eventListener: <a href="globals.html#eventlistener" class="tsd-signature-type">EventListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="globals.html#listeneroptions" class="tsd-signature-type">ListenerOptions</a>
+							<span class="tsd-signature-symbol"> | </span>
+							<span class="tsd-signature-type">undefined</span>
+						</h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="registereventlisteners" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> register<wbr>Event<wbr>Listeners</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">register<wbr>Event<wbr>Listeners&lt;K&gt;<span class="tsd-signature-symbol">(</span>eventTarget<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventTarget</span>, eventListeners<span class="tsd-signature-symbol">: </span><a href="globals.html#eventlisteners" class="tsd-signature-type">EventListeners</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/508f1cf/src/registerEventListeners.ts#L12">registerEventListeners.ts:12</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>K<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>eventTarget: <span class="tsd-signature-type">EventTarget</span></h5>
 							</li>
 							<li>
-								<h5>listeners: <a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>eventListeners: <a href="globals.html#eventlisteners" class="tsd-signature-type">EventListeners</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1295,73 +1466,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 								<h5>un<wbr>Register<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unRegister</span></h5>
 							</li>
 						</ul>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="pickhandler" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> pick<wbr>Handler</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">pick<wbr>Handler&lt;K&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, listeners<span class="tsd-signature-symbol">: </span><a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#htmlelementeventhandler" class="tsd-signature-type">HTMLElementEventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/pickFromHandlers.ts#L7">libs/pickFromHandlers.ts:7</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof HTMLElementEventMap</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>event: <span class="tsd-signature-type">K</span></h5>
-							</li>
-							<li>
-								<h5>listeners: <a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="globals.html#htmlelementeventhandler" class="tsd-signature-type">HTMLElementEventHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="picklisteneroption" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> pick<wbr>Listener<wbr>Option</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">pick<wbr>Listener<wbr>Option&lt;K&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, listeners<span class="tsd-signature-symbol">: </span><a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#listeneroptions" class="tsd-signature-type">ListenerOptions</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/1natsu172/register-event-listeners/blob/2a6959b/src/libs/pickFromHandlers.ts#L15">libs/pickFromHandlers.ts:15</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof HTMLElementEventMap</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>event: <span class="tsd-signature-type">K</span></h5>
-							</li>
-							<li>
-								<h5>listeners: <a href="globals.html#htmlelementeventhandlers" class="tsd-signature-type">HTMLElementEventHandlers</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="globals.html#listeneroptions" class="tsd-signature-type">ListenerOptions</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">undefined</span>
-						</h4>
 					</li>
 				</ul>
 			</section>

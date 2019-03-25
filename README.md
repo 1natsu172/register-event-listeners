@@ -1,8 +1,20 @@
 # register-event-listeners
 
-**Utility function to register multiple events**
+**Utility function to register multiple event listeners**
 
-_**In other words, util function that multiple execute addEventListener/removeEventListener**_
+_**In other words, utility function that multiple execute addEventListener/removeEventListener**_
+
+---
+
+## _CAVEAT_
+
+**Currently, the type definition of the second argument is broken.**
+
+Investigating a solution, but it is difficult……
+
+Help wanted!([#1](https://github.com/1natsu172/register-event-listeners/issues/1))
+
+---
 
 ## ✨ Getting Started
 
@@ -30,14 +42,13 @@ const eventTarget = document.body
 const onTouchStart = (event) => console.log(`${event.type} event dispatched.`)
 const onTouchMove = (event) => console.log(`${event.type} event dispatched.`)
 const onEnd = (event) => console.log(`${event.type} event dispatched.`)
-const onEnd = (event) => console.log(`${event.type} event dispatched.`)
 
-const { register, unRegister } = registerEventListeners(eventTarget, {
-  touchstart: [onTouchStart],
-  touchmove: [onTouchMove, { passive: false }],
-  touchend: [onEnd],
-  touchcancel: [onEnd]
-})
+const { register, unRegister } = registerEventListeners(eventTarget, [
+  ['touchstart', onTouchStart],
+  ['touchmove', onTouchMove, { passive: false }],
+  ['touchend', onEnd],
+  ['touchcancel', onEnd]
+])
 
 // Execute element.addEventListener(s) passed to the argument.
 register()
@@ -54,36 +65,33 @@ unRegister()
 
 ### `registerEventListeners(element, listeners)`
 
-| name          | require |                                                                 type                                                                 | default | decstiption                                                                                             |
-| ------------- | :-----: | :----------------------------------------------------------------------------------------------------------------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
-| element       |    ✓    |                                                             HTMLElement                                                              |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
-| listeners |    ✓    | object([HTMLElementEventHandlerType](https://1natsu172.github.io/register-event-listeners/globals.html#htmlelementeventhandlertype)) |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
+| name        | require |                                                   type                                                    | default | decstiption                                                                                             |
+| ----------- | :-----: | :-------------------------------------------------------------------------------------------------------: | :-----: | ------------------------------------------------------------------------------------------------------- |
+| eventTarget |    ✓    |                                                EventTarget                                                |    -    | [MDN - EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)                       |
+| listeners   |    ✓    | Array([EventListeners](https://1natsu172.github.io/register-event-listeners/globals.html#eventlisteners)) |    -    | [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) |
 
-#### About 2nd argument(listeners)
+#### About the 2nd argument(listeners)
 
-##### object - Key
 
-Key is an event name. **This must be strictly an [event.type](https://developer.mozilla.org/ja/docs/Web/API/Event/type).**
+##### The element of the array
 
-##### object - Value
+**Element is same as the format of the argument of [`addEventListener`](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)**
 
-**Value must be array type.**
+That is this 👉 `[type, listener[, options])]`
 
-`[handler, listenerOptions]` 
+* `type` is **[event.type](https://developer.mozilla.org/ja/docs/Web/API/Event/type).**
+* `listener` is commonly called a **handler**
+* `options` is listenerOptions
 
-Please follow this format. `handler` is required, `listenerOptions` is optional.
-
-This is exactly the same as the format of the second and third arguments of [`addEventListener`](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener).
-
-##### The second argument object should be like this.
+##### The 2nd argument should be like this.
 
 ```javascript
-{
-  touchstart: [onTouchStart, {capture: true, once: true}],
-  touchmove: [onTouchMove, { passive: false }],
-  touchend: [onEnd],
-  touchcancel: [onEnd]
-}
+[
+  ['touchstart', onTouchStart, {capture: true, once: true}],
+  ['touchmove', onTouchMove, { passive: false }],
+  ['touchend', onEnd],
+  ['touchcancel', onEnd]
+]
 ```
 
 #### Returns
