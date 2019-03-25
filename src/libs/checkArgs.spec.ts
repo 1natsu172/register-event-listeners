@@ -1,4 +1,4 @@
-import { checkEventHandlersArg } from '.'
+import { checkArgs } from '.'
 
 /**
  * @description
@@ -7,24 +7,15 @@ import { checkEventHandlersArg } from '.'
  */
 test('when input Array', () => {
   expect(() => {
-    checkEventHandlersArg({ t: [] })
-  }).not.toThrow()
-  expect(() => {
-    checkEventHandlersArg({ t: [1, 2] })
+    checkArgs([['keydown', jest.fn()]])
   }).not.toThrow()
 })
 
 test('when input "not" Array', () => {
   expect(() => {
-    checkEventHandlersArg({ t: 1 })
+    checkArgs('scroll', jest.fn())
   }).toThrow()
   expect(() => {
-    checkEventHandlersArg({ t: '1' })
-  }).toThrow()
-  expect(() => {
-    checkEventHandlersArg({ t: {} })
-  }).toThrow()
-  expect(() => {
-    checkEventHandlersArg({ t: () => {} })
+    checkArgs(['scroll', jest.fn()])
   }).toThrow()
 })
