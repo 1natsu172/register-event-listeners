@@ -8,7 +8,7 @@ _**In other words, utility function that multiple execute addEventListener/remov
 
 ## _CAVEAT_
 
-**Currently, the type definition of the second argument is broken.**
+**Currently, the type definition of the second argument is little broken.**
 
 Investigating a solution, but it is difficult……
 
