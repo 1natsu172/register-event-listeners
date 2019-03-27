@@ -3,7 +3,8 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2.1
-
+orbs:
+  codecov: codecov/codecov@1.0.4
 references:
   <<: &working_directory
     working_directory: ~/register-event-listeners
@@ -30,7 +31,9 @@ commands:
 
       - run:
           name: test
-          command: yarn test
+          command: yarn test --coverage
+      - codecov/upload:
+          file: coverage/*.json
   test-node-v9:
     steps:
       - checkout
@@ -51,7 +54,9 @@ commands:
 
       - run:
           name: test
-          command: yarn test
+          command: yarn test --coverage
+      - codecov/upload:
+          file: coverage/*.json
 
 jobs:
   node-v9:
