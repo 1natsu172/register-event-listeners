@@ -1,3 +1,8 @@
+[![](https://img.shields.io/npm/v/register-event-listeners.svg?style=for-the-badge&logo=npm&colorB=cc3534)](https://www.npmjs.com/package/register-event-listeners)
+[![](https://img.shields.io/npm/types/register-event-listeners.svg?style=for-the-badge&logo=typescript&colorB=007acc)](https://www.npmjs.com/package/register-event-listeners)
+[![](https://img.shields.io/circleci/project/github/1natsu172/register-event-listeners/master.svg?style=for-the-badge&logo=circleci&colorB=00992B)](https://circleci.com/gh/1natsu172/register-event-listeners)
+![Codecov](https://img.shields.io/codecov/c/github/1natsu172/register-event-listeners.svg?color=%23FF2F6B&logo=codecov&style=for-the-badge)
+
 # register-event-listeners
 
 **Utility function to register multiple event listeners**
