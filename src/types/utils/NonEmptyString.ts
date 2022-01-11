@@ -1,0 +1,2 @@
+// detect empty string("") util type
+export type NonEmptyString<T extends string> = "" extends T ? never : T;

@@ -1,5 +1,6 @@
 import { ListenerOptions } from "./ListenerOptions";
 import { LiteralUnion } from "./utils/LiteralUnion";
+import { NonEmptyString } from "./utils/NonEmptyString";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -33,7 +34,7 @@ export type EventHandler<
   : EventListenerOrEventListenerObject | null;
 
 export type EventListener<E extends EventType> = [
-  Extract<EventType, E>,
+  E extends NonEmptyString<E> ? E : never,
   EventHandler<E>,
   ListenerOptions?
 ];

@@ -11,7 +11,7 @@ import { EventType, EventListeners } from "./types/EventListeners";
 
 export const registerEventListeners = <K extends EventType>(
   eventTarget: EventTarget,
-  eventListeners: EventListeners<K>
+  eventListeners: "" extends K ? EventListeners<EventType> : EventListeners<K>
 ) => {
   checkArgs(eventListeners);
 
