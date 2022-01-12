@@ -11,16 +11,6 @@ _**In other words, utility function that multiple execute addEventListener/remov
 
 ---
 
-## _CAVEAT_
-
-**Currently, the type definition of the second argument is little broken.**
-
-Investigating a solution, but it is difficult……
-
-Help wanted!([#1](https://github.com/1natsu172/register-event-listeners/issues/1))
-
----
-
 ## ✨ Getting Started
 
 with **yarn**
