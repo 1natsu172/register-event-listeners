@@ -45,13 +45,13 @@ jobs:
   node-v16:
     <<: *working_directory
     docker:
-      - image:  cimg/node:16
+      - image:  cimg/node:16.13
     steps:
       - test
   node-v14:
     <<: *working_directory
     docker:
-      - image:  cimg/node:14
+      - image:  cimg/node:14.18
     steps:
       - test
 
